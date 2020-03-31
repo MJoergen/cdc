@@ -32,6 +32,9 @@ architecture structural of cdc is
 
 begin
 
+   -- The generate statement makes it easy to wildcard in the XDC file
+   -- all instances of this CDC.
+
    gen_cdc : if true generate
       p_sync_src : process (src_clk_i)
       begin
