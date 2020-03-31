@@ -1,0 +1,33 @@
+[*]
+[*] GTKWave Analyzer v3.3.86 (w)1999-2017 BSI
+[*] Tue Mar 31 08:21:31 2020
+[*]
+[dumpfile] "/home/mike/git/MJoergen/cdc/sim/gen_verify_data.ghw"
+[dumpfile_mtime] "Tue Mar 31 08:20:57 2020"
+[dumpfile_size] 22194
+[savefile] "/home/mike/git/MJoergen/cdc/sim/gen_verify_data.gtkw"
+[timestart] 0
+[size] 1499 715
+[pos] 35 0
+*-27.580050 45000000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] top.
+[treeopen] top.gen_verify_data_tb.
+[treeopen] top.gen_verify_data_tb.i_gen_data.
+[sst_width] 212
+[signals_width] 165
+[sst_expanded] 1
+[sst_vpaned_height] 187
+@28
+top.gen_verify_data_tb.clk_s
+[color] 3
+top.gen_verify_data_tb.valid_s
+[color] 5
+top.gen_verify_data_tb.ready_s
+@22
+#{top.gen_verify_data_tb.data_s[4:0]} top.gen_verify_data_tb.data_s[4] top.gen_verify_data_tb.data_s[3] top.gen_verify_data_tb.data_s[2] top.gen_verify_data_tb.data_s[1] top.gen_verify_data_tb.data_s[0]
+@28
+top.gen_verify_data_tb.error_s
+@23
+#{top.gen_verify_data_tb.i_gen_data.cnt_r[3:0]} top.gen_verify_data_tb.i_gen_data.cnt_r[3] top.gen_verify_data_tb.i_gen_data.cnt_r[2] top.gen_verify_data_tb.i_gen_data.cnt_r[1] top.gen_verify_data_tb.i_gen_data.cnt_r[0]
+[pattern_trace] 1
+[pattern_trace] 0

@@ -1,0 +1,51 @@
+[*]
+[*] GTKWave Analyzer v3.3.86 (w)1999-2017 BSI
+[*] Tue Mar 31 08:38:04 2020
+[*]
+[dumpfile] "/home/mike/git/MJoergen/cdc/sim/cdc_vector.ghw"
+[dumpfile_mtime] "Tue Mar 31 08:35:10 2020"
+[dumpfile_size] 176248
+[savefile] "/home/mike/git/MJoergen/cdc/sim/cdc_vector_tb.gtkw"
+[timestart] 64484000000
+[size] 1433 761
+[pos] 280 127
+*-29.382549 66104000000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] top.
+[treeopen] top.cdc_vector_tb.
+[treeopen] top.cdc_vector_tb.i_gen_data.
+[sst_width] 281
+[signals_width] 212
+[sst_expanded] 1
+[sst_vpaned_height] 205
+@800200
+-DUT
+@28
+top.cdc_vector_tb.i_cdc_vector.src_clk_i
+[color] 3
+top.cdc_vector_tb.i_cdc_vector.src_valid_i
+[color] 5
+top.cdc_vector_tb.i_cdc_vector.src_ready_o
+@22
+#{top.cdc_vector_tb.i_cdc_vector.src_data_i[4:0]} top.cdc_vector_tb.i_cdc_vector.src_data_i[4] top.cdc_vector_tb.i_cdc_vector.src_data_i[3] top.cdc_vector_tb.i_cdc_vector.src_data_i[2] top.cdc_vector_tb.i_cdc_vector.src_data_i[1] top.cdc_vector_tb.i_cdc_vector.src_data_i[0]
+@28
+top.cdc_vector_tb.i_cdc_vector.dst_clk_i
+[color] 3
+top.cdc_vector_tb.i_cdc_vector.dst_valid_o
+[color] 5
+top.cdc_vector_tb.i_cdc_vector.dst_ready_i
+@c00022
+#{top.cdc_vector_tb.i_cdc_vector.dst_data_o[4:0]} top.cdc_vector_tb.i_cdc_vector.dst_data_o[4] top.cdc_vector_tb.i_cdc_vector.dst_data_o[3] top.cdc_vector_tb.i_cdc_vector.dst_data_o[2] top.cdc_vector_tb.i_cdc_vector.dst_data_o[1] top.cdc_vector_tb.i_cdc_vector.dst_data_o[0]
+@28
+top.cdc_vector_tb.i_cdc_vector.dst_data_o[4]
+top.cdc_vector_tb.i_cdc_vector.dst_data_o[3]
+top.cdc_vector_tb.i_cdc_vector.dst_data_o[2]
+top.cdc_vector_tb.i_cdc_vector.dst_data_o[1]
+top.cdc_vector_tb.i_cdc_vector.dst_data_o[0]
+@1401200
+-group_end
+@1000200
+-DUT
+@28
+top.cdc_vector_tb.dst_error_s
+[pattern_trace] 1
+[pattern_trace] 0
