@@ -1,18 +1,17 @@
 [*]
 [*] GTKWave Analyzer v3.3.86 (w)1999-2017 BSI
-[*] Tue Mar 31 08:38:04 2020
+[*] Tue Mar 31 08:57:47 2020
 [*]
 [dumpfile] "/home/mike/git/MJoergen/cdc/sim/cdc_vector.ghw"
-[dumpfile_mtime] "Tue Mar 31 08:35:10 2020"
-[dumpfile_size] 176248
+[dumpfile_mtime] "Tue Mar 31 08:57:43 2020"
+[dumpfile_size] 179880
 [savefile] "/home/mike/git/MJoergen/cdc/sim/cdc_vector_tb.gtkw"
-[timestart] 64484000000
+[timestart] 0
 [size] 1433 761
 [pos] 280 127
-*-29.382549 66104000000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+*-34.382549 66104000000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] top.
 [treeopen] top.cdc_vector_tb.
-[treeopen] top.cdc_vector_tb.i_gen_data.
 [sst_width] 281
 [signals_width] 212
 [sst_expanded] 1

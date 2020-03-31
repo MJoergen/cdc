@@ -3,18 +3,18 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std_unsigned.all;
 
 entity cdc_vector_tb is
+   generic (
+      G_SRC_CLK_PERIOD : integer;
+      G_DST_CLK_PERIOD : integer;
+      G_RATE_GEN       : integer;
+      G_RATE_VERIFY    : integer
+   );
 end entity cdc_vector_tb;
 
 architecture simulation of cdc_vector_tb is
 
-   constant C_SRC_CLK_PERIOD : time := 10 ns;
-   constant C_DST_CLK_PERIOD : time := 101 ns;
-
-   constant C_RATE_GEN       : integer := 7;
-   constant C_RATE_VERIFY    : integer := 4;
-
-   constant C_SIZE           : integer := 5;
-   constant C_SEED           : integer := 1234567890;
+   constant C_SIZE    : integer := 5;
+   constant C_SEED    : integer := 1234567890;
 
    signal src_clk_s   : std_logic;
    signal src_valid_s : std_logic;
@@ -35,14 +35,14 @@ begin
 
    p_src_clk : process
    begin
-      src_clk_s <= '1', '0' after C_SRC_CLK_PERIOD/2;
-      wait for C_SRC_CLK_PERIOD;
+      src_clk_s <= '1', '0' after G_SRC_CLK_PERIOD*0.5 ns;
+      wait for G_SRC_CLK_PERIOD*1 ns;
    end process;
 
    p_dst_clk : process
    begin
-      dst_clk_s <= '1', '0' after C_DST_CLK_PERIOD/2;
-      wait for C_DST_CLK_PERIOD;
+      dst_clk_s <= '1', '0' after G_DST_CLK_PERIOD*0.5 ns;
+      wait for G_DST_CLK_PERIOD*1 ns;
    end process;
 
 
@@ -52,7 +52,7 @@ begin
 
    i_sim_gen_data : entity work.sim_gen_data
       generic map (
-         G_RATE => C_RATE_GEN,
+         G_RATE => G_RATE_GEN,
          G_SEED => C_SEED,
          G_SIZE => C_SIZE
       )
@@ -90,7 +90,7 @@ begin
 
    i_sim_verify_data : entity work.sim_verify_data
       generic map (
-         G_RATE => C_RATE_VERIFY,
+         G_RATE => G_RATE_VERIFY,
          G_SEED => C_SEED,
          G_SIZE => C_SIZE
       )
@@ -101,6 +101,15 @@ begin
          data_i  => dst_data_s,
          error_o => dst_error_s
       ); -- i_sim_verify_data
+
+   p_verify : process (dst_clk_s)
+   begin
+      if rising_edge(dst_clk_s) then
+         assert dst_error_s = '0'
+            report "Test FAILED"
+               severity failure;
+      end if;
+   end process p_verify;
 
 end architecture simulation;
 
