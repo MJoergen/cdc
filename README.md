@@ -30,3 +30,8 @@ Note: There is no parallel synchronization, so the individual bits in the
 input may not be synchronized at the same time. If you require the input
 vector to be synchronized in parallel, i.e. simultaneously, you should use
 cdc\_vector.
+
+## Documentation
+A very good introduction to Clock Domain Crossings is
+[this link](http://www.sunburst-design.com/papers/CummingsSNUG2008Boston_CDC.pdf).
+
