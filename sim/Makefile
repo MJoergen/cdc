@@ -12,9 +12,9 @@ TB_SOURCES  = sim_gen_data.vhd
 TB_SOURCES += sim_verify_data.vhd
 
 SRC_CLK_PERIOD ?= 10
-DST_CLK_PERIOD ?= 101
-RATE_GEN       ?= 7
-RATE_VERIFY    ?= 4
+DST_CLK_PERIOD ?= 11
+RATE_GEN       ?= 14
+RATE_VERIFY    ?= 13
 
 GENERICS += -gG_SRC_CLK_PERIOD=$(SRC_CLK_PERIOD)
 GENERICS += -gG_DST_CLK_PERIOD=$(DST_CLK_PERIOD)
@@ -26,9 +26,30 @@ GENERICS += -gG_RATE_VERIFY=$(RATE_VERIFY)
 # Simulation
 ##################################################################
 
-cdc_vector: cdc_vector_tb
-	ghdl -r $< --wave=$@.ghw $(GENERICS) --stop-time=100us
-	gtkwave $@.ghw $<.gtkw
+test_all:
+	rm cdc_vector.ghw; make SRC_CLK_PERIOD=10 DST_CLK_PERIOD=91 cdc_vector.ghw
+	rm cdc_vector.ghw; make SRC_CLK_PERIOD=10 DST_CLK_PERIOD=81 cdc_vector.ghw
+	rm cdc_vector.ghw; make SRC_CLK_PERIOD=10 DST_CLK_PERIOD=71 cdc_vector.ghw
+	rm cdc_vector.ghw; make SRC_CLK_PERIOD=10 DST_CLK_PERIOD=61 cdc_vector.ghw
+	rm cdc_vector.ghw; make SRC_CLK_PERIOD=10 DST_CLK_PERIOD=51 cdc_vector.ghw
+	rm cdc_vector.ghw; make SRC_CLK_PERIOD=10 DST_CLK_PERIOD=41 cdc_vector.ghw
+	rm cdc_vector.ghw; make SRC_CLK_PERIOD=10 DST_CLK_PERIOD=31 cdc_vector.ghw
+	rm cdc_vector.ghw; make SRC_CLK_PERIOD=10 DST_CLK_PERIOD=21 cdc_vector.ghw
+	rm cdc_vector.ghw; make SRC_CLK_PERIOD=10 DST_CLK_PERIOD=11 cdc_vector.ghw
+	rm cdc_vector.ghw; make SRC_CLK_PERIOD=10 DST_CLK_PERIOD=9  cdc_vector.ghw
+	rm cdc_vector.ghw; make SRC_CLK_PERIOD=20 DST_CLK_PERIOD=9  cdc_vector.ghw
+	rm cdc_vector.ghw; make SRC_CLK_PERIOD=30 DST_CLK_PERIOD=9  cdc_vector.ghw
+	rm cdc_vector.ghw; make SRC_CLK_PERIOD=40 DST_CLK_PERIOD=9  cdc_vector.ghw
+	rm cdc_vector.ghw; make RATE_GEN=15 RATE_VERIFY=1  cdc_vector.ghw
+	rm cdc_vector.ghw; make RATE_GEN=1  RATE_VERIFY=15 cdc_vector.ghw
+	rm cdc_vector.ghw; make RATE_GEN=15 RATE_VERIFY=14 cdc_vector.ghw
+	rm cdc_vector.ghw; make RATE_GEN=14 RATE_VERIFY=15 cdc_vector.ghw
+
+show: cdc_vector.ghw
+	gtkwave cdc_vector.ghw cdc_vector_tb.gtkw
+
+cdc_vector.ghw: cdc_vector_tb
+	ghdl -r $< --wave=$@ $(GENERICS) --stop-time=100us
 
 cdc_vector_tb: $(SOURCES) $(TB_SOURCES) cdc_vector_tb.vhd
 	ghdl -i --std=08 $(SOURCES)
