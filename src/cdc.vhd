@@ -36,6 +36,8 @@ begin
    -- all instances of this CDC.
 
    gen_cdc : if true generate
+
+      -- Signal is registered first in the source clock domain ...
       p_sync_src : process (src_clk_i)
       begin
          if rising_edge(src_clk_i) then
@@ -43,6 +45,7 @@ begin
          end if;
       end process p_sync_src;
 
+      -- ... then double registered in the destination clock domain.
       p_sync_dst : process (dst_clk_i)
       begin
          if rising_edge(dst_clk_i) then
