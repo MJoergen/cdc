@@ -7,6 +7,12 @@ use ieee.std_logic_1164.all;
 -- The handshaking protocol ensures that data is only transferred when
 -- both valid and ready are asserted.
 
+-- Note, the signal src_ready_o reflects the FIFOs ability to receive.
+-- It does NOT reflect the status of the dst_ready_i signal.
+
+-- When ingress data is received, src_ready_o goes low until the data has
+-- been delivered to the egress side, then src_ready_o goes high again.
+
 entity cdc_vector is
    generic (
       G_SIZE : integer
@@ -36,6 +42,26 @@ architecture structural of cdc_vector is
    signal dst_fifo_data_s  : std_logic_vector(G_SIZE-1 downto 0);
    signal dst_fifo_valid_r : std_logic := '0';
    signal dst_increment_s  : std_logic;
+
+   -- Debug
+   constant C_DEBUG_MODE                    : boolean := false;
+
+   attribute mark_debug                     : boolean;
+   attribute mark_debug of dst_data_o       : signal is C_DEBUG_MODE;
+   attribute mark_debug of dst_decrement_s  : signal is C_DEBUG_MODE;
+   attribute mark_debug of dst_fifo_data_s  : signal is C_DEBUG_MODE;
+   attribute mark_debug of dst_fifo_valid_r : signal is C_DEBUG_MODE;
+   attribute mark_debug of dst_increment_s  : signal is C_DEBUG_MODE;
+   attribute mark_debug of dst_ready_i      : signal is C_DEBUG_MODE;
+   attribute mark_debug of dst_valid_o      : signal is C_DEBUG_MODE;
+   attribute mark_debug of src_data_i       : signal is C_DEBUG_MODE;
+   attribute mark_debug of src_decrement_s  : signal is C_DEBUG_MODE;
+   attribute mark_debug of src_fifo_data_r  : signal is C_DEBUG_MODE;
+   attribute mark_debug of src_fifo_valid_d : signal is C_DEBUG_MODE;
+   attribute mark_debug of src_fifo_valid_r : signal is C_DEBUG_MODE;
+   attribute mark_debug of src_increment_r  : signal is C_DEBUG_MODE;
+   attribute mark_debug of src_ready_o      : signal is C_DEBUG_MODE;
+   attribute mark_debug of src_valid_i      : signal is C_DEBUG_MODE;
 
 begin
 
